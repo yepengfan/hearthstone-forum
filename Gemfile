@@ -9,8 +9,12 @@ gem 'rails', '4.2.0'
 # Use devise as user management
 gem 'devise'
 
+# Devise layout Framework
+gem 'foundation-rails'
+
 # add spork, ZenTest and autotest-rails to ensure functionalities
 group :development, :test do
+  gem 'rails_layout'
   gem 'rspec-rails'
   gem 'spork'
   gem 'autotest-rails'
