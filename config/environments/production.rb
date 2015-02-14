@@ -1,4 +1,21 @@
 Rails.application.configure do
+  # set up mailer
+  config.action_mailer.default_url_options = { :host => 'yoursite.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'yoursite.herokuapp.com'
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "iplayhearthstone.system@gmail.com",
+    :password             => 'u6hdubjsPybrJGkBc4ZW',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
