@@ -1,12 +1,30 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<nav class="top-bar" data-topbar>
+<nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
-    <li class="name"><%= link_to 'Home', root_path %></li>
-    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      <li class="name"><%= link_to 'Home', root_path %></li>
   </ul>
+
   <div class="top-bar-section">
-    <ul class = "right">
-      <%= render 'layouts/navigation_links' %>
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if current_user %>
+      <li class="has-dropdown">
+        <a href="#">Profile Settings</a>
+        <ul class="dropdown">
+          <li><%= link_to "Edit Profile", edit_user_registration_path, method: :get %></li>
+          <li class="active"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </li>
+      <% else %>
+      <li class="active"><%= link_to "Sign In", new_user_session_path, method: :get %></li>
+      <% end %>
     </ul>
+
+    <ul class="left">
+      <% if current_user %>
+      <li><%= link_to "#{current_user.name}", user_management_path(current_user.name), method: :get %></li>
+      <% end %>
+    </ul>
+
   </div>
 </nav>
