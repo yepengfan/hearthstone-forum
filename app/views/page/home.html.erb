@@ -19,11 +19,12 @@
   <%= form_for @enrolment, url: create_enrolment_path(:account), method: :post do |f| %>
   <% if @enrolment.errors.any? %>
     <div id="error_explanation">
-      <ul>
       <% @enrolment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div data-alert class="alert-box warning round">
+          <%= content_tag :div, msg %>
+          <a href="#" class="close">&times;</a>
+        </div>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
