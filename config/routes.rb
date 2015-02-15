@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'page/home'
   get '/matches/new' => 'management#new_match', as: 'new_match'
   post '/matches/create' => 'management#create_match', as: 'create_match'
+  get '/matches/list' => 'management#match_list', as: 'match_list'
+  get '/matches/list/:id' => 'management#edit_match'
+  #get '/matches/list/:id/active' => 'management#active_match'
+  post '/matches/list/:id/active' => 'management#active_match'
+  post '/:account' => 'page#create_enrolment', as: 'create_enrolment'
   get '/admin/:name' => 'management#manage', as: 'user_management'
 
 

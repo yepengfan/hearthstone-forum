@@ -1,0 +1,20 @@
+<h1>Match List</h1>
+<table>
+<tr>
+  <th>Match Name</th>
+  <th>Time</th>
+  <th>Create Time</th>
+  <th>Options</th>
+  <th>Active</th>
+</tr>
+
+<% @match_list.each do |item| %>
+<tr>
+  <td><%= item.name %></td>
+  <td><%= item.time %></td>
+  <td><%= item.created_at %></td>
+  <td><%= link_to "Edit", controller: "management", action: "edit_match", id: item.id %></td>
+  <td><%= button_to "Active", controller: "management", action: "active_match", id: item.id %></td>
+</tr>
+<% end %>
+</table>

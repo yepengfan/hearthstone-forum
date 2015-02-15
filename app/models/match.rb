@@ -4,11 +4,22 @@ class Match < ActiveRecord::Base
   validates :time, presence: true, uniqueness: true
   validates :rules, presence: true, length: { minimum: 10, maximum: 500 }
 
+  #save new match to model
   def save_match(match_params)
     self.name = match_params[:name]
     self.time = Time.parse("#{match_params['time(1i)']}.-#{match_params['time(2i)']}-#{match_params['time(3i)']} #{match_params['time(4i)']}:#{match_params['time(5i)']}")
     self.rules = match_params[:rules]
 
+    self.save
+  end
+
+  def acitve
+    list = Match.where(status: true)
+    list.each do |item|
+      item.status = false
+    end
+
+    self.status = true
     self.save
   end
 

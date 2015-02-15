@@ -1,2 +1,25 @@
 <h1>Hearthstone Public Match Enrolment</h1>
-<p>Find me in app/views/page/home.html.erb</p>
+
+<h1>Match Information</h1>
+<table>
+<tr>
+  <th>Match Name</th>
+  <th>Time</th>
+  <th>Rules</th>
+</tr>
+
+<tr>
+  <td><%= @match.name %></td>
+  <td><%= @match.time %></td>
+  <td><%= @match.rules %></td>
+</tr>
+</table>
+
+<div>
+  <%= form_for @enrolment, url: create_enrolment_path(:account), method: :post do |f| %>
+  <%= f.hidden_field :match_id, :value => @match.id %>
+  <%= f.label :account, "Account#BattleTag" %>
+  <%= f.text_field :account %>
+  <%= f.button "Submit" %>
+  <% end %>
+</div>

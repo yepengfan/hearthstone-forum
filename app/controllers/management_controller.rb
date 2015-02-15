@@ -11,17 +11,23 @@ class ManagementController < ApplicationController
   def create_match
     @match = Match.new
     @match.save_match(match_params)
-    
+
     redirect_to new_match_path
   end
 
+  def match_list
+    @match_list = Match.all
+  end
+
   def edit_match
+    @match = Match.find(params[:id])
   end
 
-  def cancel_match
-  end
+  def active_match
+    @match = Match.find(params[:id])
+    @match.acitve
 
-  def search_match
+    redirect_to match_list_path
   end
 
   # check whether user has loged in. If users access to other user's account,
@@ -39,5 +45,4 @@ class ManagementController < ApplicationController
   def match_params
     params.require(:match).permit!
   end
-
 end

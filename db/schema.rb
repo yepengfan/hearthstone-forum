@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215015224) do
+ActiveRecord::Schema.define(version: 20150215045314) do
 
   create_table "enrolments", force: :cascade do |t|
     t.string   "account"
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20150215015224) do
     t.datetime "time"
     t.text     "rules"
     t.integer  "lock_version", default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "status",       default: false
   end
 
   create_table "users", force: :cascade do |t|
