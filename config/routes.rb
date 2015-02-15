@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   #get '/matches/list/:id/active' => 'management#active_match'
   post '/matches/list/:id/active' => 'management#active_match'
   post '/:account' => 'page#create_enrolment', as: 'create_enrolment'
+  get '/matches/list/export/:id' => 'management#export_enrolment'
   get '/admin/:name' => 'management#manage', as: 'user_management'
-
 
   devise_for :users
   as :user do

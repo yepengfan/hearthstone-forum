@@ -30,6 +30,13 @@ class ManagementController < ApplicationController
     redirect_to match_list_path
   end
 
+  def export_enrolment
+    @list = Enrolment.new
+    @list.export_enrolment(params[:id])
+    send_file Rails.root.join('private', 'enrol_list.csv'), :type=>"application/csv", :x_sendfile=>true
+  end
+
+
   # check whether user has loged in. If users access to other user's account,
   # they will get a warning and redirect to root page.
   private
