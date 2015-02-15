@@ -7,7 +7,7 @@ class Enrolment < ActiveRecord::Base
     list = Enrolment.where(:match_id => m_id)
     output = File.open("./private/enrol_list.csv", "w")
     list.each do |item|
-      output << item.account
+      output << "#{item.account}\n"
     end
 
     output.close
