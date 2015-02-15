@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
 
 # Use devise as user management
 gem 'devise'
@@ -13,19 +11,19 @@ gem 'devise'
 gem 'foundation-rails'
 
 # add spork, ZenTest and autotest-rails to ensure functionalities
-# group :development, :test do
-#   gem 'rails_layout'
-#   gem 'rspec-rails'
-#   gem 'spork'
-#   gem 'autotest-rails'
-#   gem 'ZenTest'
-#   gem 'sqlite3'
-# end
+group :development, :test do
+  gem 'rails_layout'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'autotest-rails'
+  gem 'ZenTest'
+  gem 'sqlite3'
+end
 
-# group :production do
+group :production do
   gem 'rails_12factor'
   gem 'pg'
-# end
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
