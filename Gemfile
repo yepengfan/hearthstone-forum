@@ -19,7 +19,8 @@ group :development, :test do
   gem 'spork'
   gem 'autotest-rails'
   gem 'ZenTest'
-  gem 'sqlite3'
+  #gem 'sqlite3'
+  gem 'pg'
 end
 
 group :production do
