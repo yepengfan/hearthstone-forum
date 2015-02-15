@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'page/home'
-  get '/:name' => 'management#manage', as: 'user_management'
+  get '/matches/new' => 'management#new_match', as: 'new_match'
+  post '/matches/create' => 'management#create_match', as: 'create_match'
+  get '/admin/:name' => 'management#manage', as: 'user_management'
+
 
   devise_for :users
   as :user do

@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213105013) do
+ActiveRecord::Schema.define(version: 20150215015224) do
 
   create_table "enrolments", force: :cascade do |t|
     t.string   "account"
     t.integer  "match_id"
-    t.integer  "lock_version"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "lock_version", default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "matches", force: :cascade do |t|
     t.string   "name"
     t.datetime "time"
     t.text     "rules"
-    t.integer  "lock_version"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "lock_version", default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|

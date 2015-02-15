@@ -1,8 +1,27 @@
 class ManagementController < ApplicationController
-  before_action :check_login
+  before_action :check_login, only: :manage
 
   def manage
+  end
+
+  def new_match
+    @match = Match.new
+  end
+
+  def create_match
+    @match = Match.new
+    @match.save_match(match_params)
     
+    redirect_to new_match_path
+  end
+
+  def edit_match
+  end
+
+  def cancel_match
+  end
+
+  def search_match
   end
 
   # check whether user has loged in. If users access to other user's account,
@@ -16,4 +35,9 @@ class ManagementController < ApplicationController
       redirect_to :root
     end
   end
+
+  def match_params
+    params.require(:match).permit!
+  end
+
 end

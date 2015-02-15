@@ -1,0 +1,18 @@
+<%= form_for @match, url: create_match_path, method: :post, :html => { :multipart => true } do |f| %>
+<%= f.hidden_field :lock_version %>
+<p>
+  <%= f.label :name, "Match Name" %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :time, "Match Start Time" %>
+  <%= f.datetime_select :time, :ampm => true, :minute_step => 15%>
+</p>
+<p>
+  <%= f.label :rules, "Match Rules" %>
+  <%= f.text_area :rules %>
+</p>
+<p>
+  <%= f.button "Submit" %>
+</p>
+<% end %>
