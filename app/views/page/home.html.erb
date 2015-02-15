@@ -17,6 +17,16 @@
 
 <div>
   <%= form_for @enrolment, url: create_enrolment_path(:account), method: :post do |f| %>
+  <% if @enrolment.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @enrolment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.hidden_field :match_id, :value => @match.id %>
   <%= f.label :account, "Account#BattleTag" %>
   <%= f.text_field :account %>
