@@ -1,5 +1,8 @@
 <%= form_for @match, url: create_match_path, method: :post, :html => { :multipart => true } do |f| %>
 <%= f.hidden_field :lock_version %>
+<% if @match.id %>
+<%= f.hidden_field :id %>
+<% end %>
 <p>
   <%= f.label :name, "Match Name" %>
   <%= f.text_field :name %>

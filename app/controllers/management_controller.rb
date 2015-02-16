@@ -9,10 +9,16 @@ class ManagementController < ApplicationController
   end
 
   def create_match
+    if match_params[:id]
+      @match = Match.find(match_params[:id])
+      @match.save_match(match_params)
+    elsif
+
     @match = Match.new
     @match.save_match(match_params)
+    end
 
-    redirect_to new_match_path
+    redirect_to match_list_path
   end
 
   def match_list
