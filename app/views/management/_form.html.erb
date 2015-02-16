@@ -13,7 +13,7 @@
   <%= f.text_area :rules %>
 </p>
 <p>
-  <%= f.button "Submit" %>
+  <%= f.button "Submit" %> &nbsp;&nbsp;&nbsp;
+  <%= link_to 'Back', { :controller => 'management', :action => 'match_list'}, class:'button'%>
 </p>
 <% end %>
-<%= link_to "Back", controller: "management", action: "match_list" %>
