@@ -1,38 +1,52 @@
-<h1>Hearthstone Public Match Enrolment</h1>
+<style>
+  #confirmBtn input {
+    width:600px;
+  }
+</style>
+<div align="center">
+<div align="left" style="width: 650px">
+  <div>
+    <h2 style="color: #563d7c">Hearthstone Public Match Enrolment</h2>
+  </div>
+  </br>
+  <h3 style="color: #8a8a8a">Match Information</h3>
+  <table width="600px">
+  <tr>
+    <th>Match Name</th>
+    <th>Time</th>
+    <th>Rules</th>
+  </tr>
 
-<h1>Match Information</h1>
-<table>
-<tr>
-  <th>Match Name</th>
-  <th>Time</th>
-  <th>Rules</th>
-</tr>
+  <% if @match %>
+  <tr>
+    <td><%= @match.name %></td>
+    <td><%= @match.time %></td>
+    <td><%= @match.rules %></td>
+  </tr>
+  </table>
 
-<% if @match %>
-<tr>
-  <td><%= @match.name %></td>
-  <td><%= @match.time %></td>
-  <td><%= @match.rules %></td>
-</tr>
-</table>
+  <div>
+    <%= form_for @enrolment, url: create_enrolment_path(:account), method: :post do |f| %>
+    <% if @enrolment.errors.any? %>
+      <div id="error_explanation">
+        <% @enrolment.errors.full_messages.each do |msg| %>
+          <div data-alert class="alert-box warning round">
+            <%= content_tag :div, msg %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
-<div>
-  <%= form_for @enrolment, url: create_enrolment_path(:account), method: :post do |f| %>
-  <% if @enrolment.errors.any? %>
-    <div id="error_explanation">
-      <% @enrolment.errors.full_messages.each do |msg| %>
-        <div data-alert class="alert-box warning round">
-          <%= content_tag :div, msg %>
-          <a href="#" class="close">&times;</a>
-        </div>
-      <% end %>
+    <%= f.hidden_field :match_id, :value => @match.id %>
+    <%= f.label :account, "Account#BattleTag" %>
+    <div id="confirmBtn">
+       <%= f.text_field :account %>
     </div>
-  <% end %>
-
-  <%= f.hidden_field :match_id, :value => @match.id %>
-  <%= f.label :account, "Account#BattleTag" %>
-  <%= f.text_field :account %>
-  <%= f.button "Submit" %>
+    <%= f.button "Submit" %>&nbsp;&nbsp;&nbsp;
+    <input type="reset" class="button disabled" value="reset"/>
+    <% end %>
+  </div>
   <% end %>
 </div>
-<% end %>
+</div>
