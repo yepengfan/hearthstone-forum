@@ -15,7 +15,7 @@
   <td><%= item.time %></td>
   <td><%= item.created_at %></td>
   <td><%= link_to "Edit", controller: "management", action: "edit_match", id: item.id %></td>
-  <td><%= button_to "Active", controller: "management", action: "active_match", id: item.id %></td>
+  <td><%= button_to "Active",{ :controller=> "management", :action=> "active_match", :id => item.id}, class:'button tiny success' %></td>
   <td><%= link_to "List", controller: "management", action: "export_enrolment", id: item.id %></td>
 </tr>
 <% end %>
