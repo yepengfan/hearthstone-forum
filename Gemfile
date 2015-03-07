@@ -10,6 +10,9 @@ gem 'devise'
 # Devise layout Framework
 gem 'foundation-rails'
 
+# Memcache store uses dalli
+gem 'dalli'
+
 # add spork, ZenTest and autotest-rails to ensure functionalities
 group :development, :test do
   gem 'rails_layout'
