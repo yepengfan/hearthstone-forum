@@ -56,6 +56,7 @@ GEM
       execjs
     coffee-script-source (1.9.0)
     columnize (0.9.0)
+    dalli (2.7.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -199,6 +200,7 @@ DEPENDENCIES
   autotest-rails
   byebug
   coffee-rails (~> 4.1.0)
+  dalli
   devise
   foundation-rails
   jbuilder (~> 2.0)
